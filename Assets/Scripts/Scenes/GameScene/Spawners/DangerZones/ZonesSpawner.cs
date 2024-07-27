@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ZonesSpawner : MonoBehaviour
 {
-    [Header("Border")]
-    [SerializeField] private Area _border;
+    [Header("Area")]
+    [SerializeField] private Area _area;
     [SerializeField] private float _distanceBetween = 3.0f;
 
     #region -Zones-
@@ -37,7 +37,7 @@ public class ZonesSpawner : MonoBehaviour
         int attempts = 0;
 
         float _xMax, _xMin, _yMax, _yMin;
-        var (max, min) = _border.GetMaxMin();
+        var (max, min) = _area.GetMaxMin();
 
         _xMax = max.x - _distanceBetween;
         _xMin = min.x + _distanceBetween;

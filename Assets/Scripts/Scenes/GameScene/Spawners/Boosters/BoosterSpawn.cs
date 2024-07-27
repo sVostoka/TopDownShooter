@@ -12,9 +12,11 @@ public class BoosterSpawn : Spawner
             Vector3 bottomLeft = _camera.ScreenToWorldPoint(Vector2.zero);
             Vector3 topRight = _camera.ScreenToWorldPoint(new(Screen.width, Screen.height));
 
-            gameObject.transform.position = new Vector2(
-                    Random.Range(bottomLeft.x, topRight.x),
-                    Random.Range(bottomLeft.y, topRight.y)
+            var (max, min) = _area.GetMaxMin();
+
+            gameObject.transform.position = new(
+                    Mathf.Clamp(Random.Range(bottomLeft.x, topRight.x), min.x, max.x),
+                    Mathf.Clamp(Random.Range(bottomLeft.y, topRight.y), min.y, max.y)
                 );
 
             StartCoroutine(DeleteObject(spawnObject, gameObject));

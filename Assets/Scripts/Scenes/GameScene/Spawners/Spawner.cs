@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class Spawner : MonoBehaviour
 {
+    [Header("Area")]
+    [SerializeField] protected Area _area;
+    [SerializeField] protected float _margin;
+
+    [Header ("Repeat")]
     [SerializeField] private float _repeatTime = 27f;
     public float RepeatTime
     {

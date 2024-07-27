@@ -445,7 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd23e18d03f549449cc61ae0a9081b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repeatTime: 10
+  _area: {fileID: 2126537908}
+  _margin: 0
+  _repeatTime: 1
   _timeBeforeStart: 0
   _timeUntilDelete: 5
   _spawnObjects:
@@ -502,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bed0ecc90493054485ba7b113ce8f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _border: {fileID: 2126537908}
+  _area: {fileID: 2126537908}
   _distanceBetween: 3
   _maxAttempts: 1000
   _zonesPrefab:
@@ -690,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8e2acb9620dc447b1dd2454ae1f6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _area: {fileID: 2126537908}
+  _margin: 0
   _repeatTime: 27
   _timeBeforeStart: 0
   _timeUntilDelete: 5
@@ -1014,11 +1018,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504087029}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36d8cd18927fc4749acadd1903b35544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _area: {fileID: 2126537908}
+  _margin: 2
   _repeatTime: 2
   _timeBeforeStart: 0
   _timeUntilDelete: Infinity
@@ -1029,8 +1035,6 @@ MonoBehaviour:
     probability: 0.3
   - prefab: {fileID: 2318897112169337916, guid: b4791b31dd13b9c45aecd33af7918e78, type: 3}
     probability: 0.1
-  _area: {fileID: 2126537908}
-  _margin: 2
   _minRepeatTime: 0.5
   _declineTime: 10
   _declineValue: 0.1

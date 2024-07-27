@@ -5,10 +5,6 @@ using static Enums;
 
 public class EnemySpawner : Spawner
 {
-    [Header("Area")]
-    [SerializeField] private Area _area;
-    [SerializeField] private float _margin;
-
     [Header ("Decline Time")]
     [SerializeField] private float _minRepeatTime;
     [SerializeField] private float _declineTime;
