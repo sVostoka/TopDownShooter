@@ -3,6 +3,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _startHp = 10;
+
+    private bool _isDead;
     private float _hp = 10;
     public float Hp 
     { 
@@ -11,8 +13,9 @@ public class Enemy : MonoBehaviour
         {
             _hp = value;
 
-            if (_hp <= 0)
+            if (_hp <= 0 && !_isDead)
             {
+                _isDead = true;
                 Death();
             }
         } 
@@ -34,6 +37,7 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
+        _isDead = false;
         Hp = _startHp;
     }
 

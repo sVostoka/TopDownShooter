@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _area: {fileID: 2126537908}
-  _margin: 0
-  _repeatTime: 1
+  _margin: 2
+  _repeatTime: 10
   _timeBeforeStart: 0
   _timeUntilDelete: 5
   _spawnObjects:
@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _area: {fileID: 2126537908}
-  _margin: 0
+  _margin: 2
   _repeatTime: 27
   _timeBeforeStart: 0
   _timeUntilDelete: 5
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504087029}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36d8cd18927fc4749acadd1903b35544, type: 3}
   m_Name: 
@@ -1959,7 +1959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d6f46c65b2e45409299414d4221401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 4
   _rotationSpeed: 180
 --- !u!50 &988020429
 Rigidbody2D:
@@ -1973,7 +1973,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 15
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

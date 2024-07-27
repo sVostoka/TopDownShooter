@@ -12,16 +12,6 @@ public class EnemySpawner : Spawner
 
     private Coroutine _declineCorutine;
 
-    protected override void Awake()
-    {
-        base.Awake();
-
-        foreach (var spawnObject in _spawnObjects)
-        {
-            spawnObject.pool.AttachLinkAll(InitEnemies);
-        }
-    }
-
     protected override void Start()
     {
         base.Start();
@@ -37,6 +27,8 @@ public class EnemySpawner : Spawner
                 delegate { return Preload(spawnObject.prefab); },
                 GetAction, ReturnAction, Constants.Spawner.PRELOADCOUNT,
                 delegate { return Add(spawnObject.prefab, ref spawnObject.pool); });
+
+            spawnObject.pool.AttachLinkAll(InitEnemies);
         }
     }
 
@@ -57,14 +49,12 @@ public class EnemySpawner : Spawner
         SpawnObject spawnObject = GetObject();
         if(spawnObject != null)
         {
-            GameObject gameObject = spawnObject.pool.GetElement();
-
             Vector3 cameraBottomLeft = _camera.ScreenToWorldPoint(Vector2.zero);
             Vector3 cameraTopRight = _camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
             var (areaTopRight, areaBottomLeft) = _area.GetMaxMin();
 
-            List<Side> sides = new List<Side>() { Side.Top, Side.Right, Side.Bottom, Side.Left };
+            List<Side> sides = new() { Side.Top, Side.Right, Side.Bottom, Side.Left };
 
             if (areaBottomLeft.x + _margin >= cameraBottomLeft.x - _margin) sides.Remove(Side.Left);
             if (areaTopRight.y - _margin <= cameraTopRight.y + _margin) sides.Remove(Side.Top);
@@ -93,6 +83,8 @@ public class EnemySpawner : Spawner
                     break;
             }
 
+
+            GameObject gameObject = spawnObject.pool.GetElement();
             gameObject.transform.position = position;
         }
     }
@@ -110,7 +102,7 @@ public class EnemySpawner : Spawner
 
             RepeatTime -= _declineValue;
 
-            if (RepeatTime == _minRepeatTime)
+            if (RepeatTime <= _minRepeatTime)
             {
                 CoroutineManager.s_Instance.StopCoroutine(_declineCorutine);
             }
