@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _hp = 10;
+    [SerializeField] private float _startHp = 10;
+    private float _hp = 10;
     public float Hp 
     { 
         get => _hp; 
@@ -29,6 +30,11 @@ public class Enemy : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerPosition = FindAnyObjectByType<Player>().transform;
+    }
+
+    private void OnEnable()
+    {
+        Hp = _startHp;
     }
 
     private void FixedUpdate()

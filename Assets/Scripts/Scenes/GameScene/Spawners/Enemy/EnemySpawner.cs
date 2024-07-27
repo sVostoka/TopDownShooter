@@ -98,8 +98,6 @@ public class EnemySpawner : Spawner
             }
 
             gameObject.transform.position = position;
-
-            StartCoroutine(DeleteObject(spawnObject, gameObject));
         }
     }
 
